@@ -69,3 +69,19 @@ body:has(#certificate-viewer[open]){overflow:hidden}#certificate-viewer{width:mi
 @media(hover:hover) and (pointer:fine){.project-art{transition:filter .4s}.project-card:hover .project-art{filter:saturate(1.15)}.theme-toggle:hover>span:first-child{transform:rotate(180deg)}.theme-toggle>span:first-child{transition:transform .5s}.contact-email span{display:inline-block;transition:transform .3s}.contact-email:hover span{transform:translate(5px,-5px)}}
 @media(max-width:360px){.build-flow{gap:7px;font-size:10px}.build-flow span{padding:5px 8px}}
 @media(prefers-reduced-motion:reduce){.build-flow span{animation:none!important}.project-card::after{display:none}.theme-toggle:hover>span:first-child,.contact-email:hover span{transform:none}}
+
+/* Four-second opening: signature holds, then lifts away into the hero. */
+.intro-signature{animation-duration:.8s;animation-delay:3.2s}
+.signature-mark{animation-duration:1.1s}
+.signature-line{animation-duration:2.8s}
+.hero-copy>*{animation-delay:3.65s}
+.hero-copy h1{animation-delay:3.75s}
+.hero-copy h2{animation-delay:3.85s}
+.hero-copy .intro{animation-delay:3.95s}
+.hero-copy .actions{animation-delay:4.05s}
+.hero-copy .social-links{animation-delay:4.15s}
+.hero .profile-card{animation-delay:3.85s}
+.hero h1>.hero-name{animation-delay:3.85s}
+.build-flow span:nth-of-type(1){animation-delay:4.1s}
+.build-flow span:nth-of-type(2){animation-delay:4.5s}
+.build-flow span:nth-of-type(3){animation-delay:4.9s}
