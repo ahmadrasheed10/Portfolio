@@ -45,3 +45,28 @@ certificateViewer.addEventListener('click', event => {
   if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) certificateViewer.close();
 });
 certificateViewer.addEventListener('close', () => certificateTrigger?.focus());
+
+// Reveal below-fold content once; never conceal content for reduced-motion users.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (!motionPreference.matches && 'IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('pending');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.08});
+  document.querySelectorAll('.project-card,.experience-list article,.certificate-card,.about-grid,.contact-section').forEach(element => {
+    if (element.getBoundingClientRect().top > window.innerHeight) {
+      element.classList.add('reveal', 'pending');
+      revealObserver.observe(element);
+    }
+  });
+  motionPreference.addEventListener('change', event => {
+    if (event.matches) {
+      revealObserver.disconnect();
+      document.querySelectorAll('.reveal.pending').forEach(element => element.classList.remove('pending'));
+    }
+  });
+}
