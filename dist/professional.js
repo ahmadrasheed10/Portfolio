@@ -70,3 +70,31 @@ if (!motionPreference.matches && 'IntersectionObserver' in window) {
     }
   });
 }
+
+// One passive scroll listener updates progress and the active navigation section.
+const sectionLinks = [...document.querySelectorAll('.nav nav a[href^="#"]')];
+const trackedSections = sectionLinks.map(link => ({link, section: document.querySelector(link.getAttribute('href'))})).filter(item => item.section);
+let scrollFrame = 0;
+function updateReadingPosition() {
+  scrollFrame = 0;
+  const distance = document.documentElement.scrollHeight - window.innerHeight;
+  document.documentElement.style.setProperty('--read-progress', distance > 0 ? Math.min(1, window.scrollY / distance) : 0);
+  let active;
+  trackedSections.forEach(item => {if (item.section.getBoundingClientRect().top <= 170) active = item;});
+  trackedSections.forEach(item => {
+    if (item === active) item.link.setAttribute('aria-current', 'location');
+    else item.link.removeAttribute('aria-current');
+  });
+}
+window.addEventListener('scroll', () => {if (!scrollFrame) scrollFrame = requestAnimationFrame(updateReadingPosition);}, {passive:true});
+window.addEventListener('resize', updateReadingPosition);
+updateReadingPosition();
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('pointermove', event => {
+    if (!finePointer.matches || motionPreference.matches) return;
+    const bounds = card.getBoundingClientRect();
+    card.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`);
+    card.style.setProperty('--pointer-y', `${event.clientY - bounds.top}px`);
+  }, {passive:true});
+});
