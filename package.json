@@ -1,0 +1,11 @@
+{
+  "name": "ahmad-rasheed-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An original editorial portfolio for Ahmad Rasheed",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check dist/professional.js"
+  }
+}
