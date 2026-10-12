@@ -7,3 +7,32 @@
 @media(max-width:700px){.nav nav{flex-wrap:wrap;justify-content:flex-start;gap:9px 20px;font-size:11px}.certificates-grid{grid-template-columns:1fr;gap:16px}.certificate-card{padding:21px}.certificates-section{padding-bottom:5px}.credential-icon{width:42px;height:42px;font-size:13px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body:has(#certificate-viewer[open]){overflow:hidden}#certificate-viewer{width:min(960px,calc(100% - 32px));max-height:92dvh;padding:0;border:1px solid #dfe5f0;border-radius:12px;background:#fff;color:var(--ink);box-shadow:0 25px 100px #101c3b40}#certificate-viewer[open]{display:flex;flex-direction:column}#certificate-viewer::backdrop{background:#111b32b3;backdrop-filter:blur(4px)}.certificate-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px 22px;border-bottom:1px solid var(--line);flex-shrink:0}.certificate-toolbar h2{font-size:18px;line-height:1.4;letter-spacing:-.4px}#close-certificate{width:34px;height:34px;border:1px solid #dbe2ee;border-radius:7px;background:#f7f9fd;color:#445674;font-size:16px;cursor:pointer;flex-shrink:0}#close-certificate:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.certificate-stage{overflow:auto;background:#eef1f6;padding:22px;min-height:100px}.certificate-stage img{display:block;width:100%;max-width:800px;height:auto;margin:auto;box-shadow:0 2px 12px #18223615}.certificate-stage img[hidden]{display:none}#certificate-status{padding:32px 12px;text-align:center;font-size:13px;color:var(--muted)}.certificate-footer{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:13px 22px;border-top:1px solid var(--line);flex-shrink:0}.certificate-footer>span{font-size:11px;color:var(--muted)}.certificate-footer .button{font-size:11px;padding:9px 12px}@media(max-width:700px){.certificate-toolbar{padding:14px}.certificate-toolbar h2{font-size:14px}.certificate-stage{padding:10px}.certificate-footer{padding:12px 14px}.certificate-footer>span{font-size:9px}.certificate-footer .button{font-size:10px}}
+
+/* Theme controls and dark palette. Certificate originals retain their colors. */
+:root{color-scheme:light}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;flex-shrink:0;min-height:40px;padding:8px 11px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--ink);font:500 11px var(--body);cursor:pointer}
+.theme-toggle>span:first-child{font-size:20px;line-height:1}
+.theme-toggle:hover{border-color:var(--blue)}
+.theme-toggle:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.theme-toggle[aria-pressed="true"]{background:#223453;border-color:#526d99}
+[data-theme="dark"]{color-scheme:dark;--ink:#edf2fa;--muted:#a9b6cb;--blue:#8caeff;--line:#2d3b50}
+[data-theme="dark"] body{background:#101722}
+[data-theme="dark"] header{background:#101722f5}
+[data-theme="dark"] :is(.profile-card,.project-card,.skills,.certificate-card,#certificate-viewer){background:#172130;border-color:var(--line)}
+[data-theme="dark"] :is(.experience-section,.certificate-stage){background:#121c2a}
+[data-theme="dark"] :is(.profile-art,.contact-section){background:#1c2b43;border-color:var(--line)}
+[data-theme="dark"] .profile-art>span{color:#e1eaff}
+[data-theme="dark"] :is(.brand-icon,.nav-contact,.education-icon,.credential-icon,.company-icon,.card-label .achievement){background:#223453;color:#a9c3ff;border-color:#344866}
+[data-theme="dark"] :is(.hero h2,dd,.experience-list h4){color:#c0cce0}
+[data-theme="dark"] :is(dt,.social-links,.card-label,.experience-list time,.credential-date,footer){color:#a9b6cb}
+[data-theme="dark"] :is(.text-link,summary,.contact-email){color:#a9c3ff}
+[data-theme="dark"] :is(.secondary,.certificate-link,#close-certificate){background:#202e43;color:#c5d7ff;border-color:#405578}
+[data-theme="dark"] :is(.secondary,.certificate-link,#close-certificate):hover{background:#2a3c56}
+[data-theme="dark"] .primary{background:#416fe5;border-color:#416fe5;color:#fff}
+[data-theme="dark"] .primary:hover{background:#345ec9}
+[data-theme="dark"] .tags span{background:#202d40;border-color:#34445d;color:#bdcbe0}
+[data-theme="dark"] .project-card:hover{border-color:#5877a9}
+[data-theme="dark"] .skip{background:#edf2fa;color:#101722}
+[data-theme="dark"] .mini-title{color:#3564df}
+@media(min-width:701px) and (max-width:1100px){.nav{gap:14px}.nav nav{gap:12px}.theme-toggle{padding:8px}.theme-toggle>span:last-child{display:none}}
+@media(max-width:700px){.nav{position:relative}.theme-toggle{position:absolute;right:0;top:12px;min-height:34px;padding:5px 9px}}
