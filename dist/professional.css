@@ -36,3 +36,9 @@ body:has(#certificate-viewer[open]){overflow:hidden}#certificate-viewer{width:mi
 [data-theme="dark"] .mini-title{color:#3564df}
 @media(min-width:701px) and (max-width:1100px){.nav{gap:14px}.nav nav{gap:12px}.theme-toggle{padding:8px}.theme-toggle>span:last-child{display:none}}
 @media(max-width:700px){.nav{position:relative}.theme-toggle{position:absolute;right:0;top:12px;min-height:34px;padding:5px 9px}}
+
+.profile-art.profile-photo{height:320px;background:#17375d}
+.profile-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+@media(max-width:1000px) and (min-width:701px){.profile-art.profile-photo{height:280px}}
+@media(max-width:700px){.profile-card:has(.profile-photo){grid-template-columns:120px 1fr}.profile-art.profile-photo{height:100%;min-height:180px}.profile-photo img{object-position:center center}}
+@media(max-width:360px){.profile-card:has(.profile-photo){grid-template-columns:100px 1fr}}
