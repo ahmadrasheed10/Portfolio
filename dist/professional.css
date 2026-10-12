@@ -85,3 +85,24 @@ body:has(#certificate-viewer[open]){overflow:hidden}#certificate-viewer{width:mi
 .build-flow span:nth-of-type(1){animation-delay:4.1s}
 .build-flow span:nth-of-type(2){animation-delay:4.5s}
 .build-flow span:nth-of-type(3){animation-delay:4.9s}
+
+/* Clear interaction feedback for credentials and professional experience. */
+.experience-list article{position:relative;border-radius:10px;transition:background .22s,box-shadow .22s,transform .22s}
+.certificate-card{transition:background .22s,border-color .22s,box-shadow .22s,transform .22s}
+.certificate-link{transition:background .2s,color .2s,border-color .2s,box-shadow .2s}
+.experience-list article:focus-within{background:#eaf0ff;box-shadow:inset 4px 0 #3564df}
+.certificate-card:focus-within{background:#f0f5ff;border-color:#3564df;box-shadow:0 8px 24px #3564df20}
+.certificate-link:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media(hover:hover) and (pointer:fine){
+.experience-list article:hover{background:#eaf0ff;box-shadow:inset 4px 0 #3564df,0 8px 24px #3564df0d;transform:translateX(4px)}
+.experience-list article:hover h3{color:#2855bf}
+.certificate-card:hover{background:#f0f5ff;border-color:#3564df;box-shadow:0 12px 30px #3564df24;transform:translateY(-5px)}
+.certificate-link:hover{background:#3564df;color:#fff;border-color:#3564df;box-shadow:0 4px 12px #3564df30}
+[data-theme="dark"] .experience-list article:hover{background:#1e3150;box-shadow:inset 4px 0 #8caeff,0 8px 24px #0002}
+[data-theme="dark"] .experience-list article:hover h3{color:#b5cdff}
+[data-theme="dark"] .certificate-card:hover{background:#203453;border-color:#8caeff;box-shadow:0 12px 30px #0003}
+[data-theme="dark"] .certificate-link:hover{background:#8caeff;color:#101a2d;border-color:#8caeff}
+}
+[data-theme="dark"] .experience-list article:focus-within{background:#1e3150;box-shadow:inset 4px 0 #8caeff}
+[data-theme="dark"] .certificate-card:focus-within{background:#203453;border-color:#8caeff}
+@media(prefers-reduced-motion:reduce){.experience-list article:hover,.certificate-card:hover{transform:none}}
