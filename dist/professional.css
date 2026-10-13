@@ -121,3 +121,33 @@ body:has(#certificate-viewer[open]){overflow:hidden}#certificate-viewer{width:mi
 @media(hover:hover) and (pointer:fine){.skills.toolkit:hover{transform:none}.skill-badges li:hover{transform:translateY(-3px);border-color:var(--blue);background:#edf3ff;box-shadow:0 5px 12px #3564df18}[data-theme="dark"] .skill-badges li:hover{background:#2b4162}.skill-group:hover .skill-category-icon{transform:rotate(-7deg)}.skill-category-icon{transition:transform .25s}}
 @media(max-width:700px){.skills.toolkit>.toolkit-heading{padding:23px}.skills.toolkit>.skill-group{padding:20px 23px}.toolkit-heading h3{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.skill-badges li:hover,.skill-group:hover .skill-category-icon{transform:none}}
+
+/* Layered page reveal after the AR signature. */
+.page-transition{position:fixed;inset:0;z-index:95;display:grid;grid-template-columns:repeat(3,1fr);pointer-events:none;visibility:hidden;animation:curtain-lifecycle 5.2s linear both}
+.page-transition span{background:#182a49;transform-origin:top;animation:curtain-away .9s cubic-bezier(.77,0,.18,1) 3.8s both}
+.page-transition span:nth-child(2){background:#244a8f;animation-delay:3.92s}
+.page-transition span:nth-child(3){background:#6f91ee;animation-delay:4.04s}
+@keyframes curtain-lifecycle{0%,99%{visibility:visible}100%{visibility:hidden}}
+@keyframes curtain-away{from{transform:translateY(0)}to{transform:translateY(-102%)}}
+
+/* Natural scroll scenes: headings open like a page and content alternates direction. */
+.reveal{opacity:1;transform:none;clip-path:inset(0);filter:none;transition:opacity .75s ease,transform .9s cubic-bezier(.2,.72,.18,1),clip-path .95s cubic-bezier(.2,.72,.18,1),filter .8s ease;transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform,clip-path}
+.reveal.pending{opacity:0;filter:blur(3px)}
+.reveal.pending[data-reveal="left"]{transform:translate3d(-34px,24px,0);clip-path:inset(0 0 0 12%)}
+.reveal.pending[data-reveal="right"]{transform:translate3d(34px,24px,0);clip-path:inset(0 12% 0 0)}
+.reveal.pending[data-reveal="wide"]{transform:translate3d(0,28px,0);clip-path:inset(0 0 72% 0)}
+.section-heading{position:relative}
+.section-heading::after{content:'';position:absolute;left:0;bottom:-13px;width:72px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);transform:scaleX(0);transform-origin:left;transition:transform .75s ease .28s}
+.section-heading.reveal:not(.pending)::after{transform:scaleX(1)}
+
+/* Let the hero arrive only after the transition panels begin clearing. */
+.hero-copy>*{animation-delay:4.15s}
+.hero-copy h1{animation-delay:4.25s}
+.hero-copy h2{animation-delay:4.35s}
+.hero-copy .intro{animation-delay:4.45s}
+.hero-copy .actions{animation-delay:4.55s}
+.hero-copy .social-links{animation-delay:4.7s}
+.hero .profile-card{animation-delay:4.3s}
+.hero h1>.hero-name{animation-delay:4.35s}
+
+@media(prefers-reduced-motion:reduce){.page-transition{display:none}.reveal,.reveal.pending{opacity:1;transform:none;clip-path:none;filter:none}.section-heading::after{transform:scaleX(1)}}
