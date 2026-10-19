@@ -8,7 +8,8 @@ const certificateNames = {
   'ignicube-internship.jpg': 'Ignicube — Internship Certificate',
   'maple-leaf-internship.png': 'Maple Leaf — Internship Certificate',
   'ibm-ai-essentials.pdf': 'IBM — Artificial Intelligence Essentials V2',
-  'softec26-ai-hackathon.pdf': 'SOFTEC ’26 — AI Hackathon Certificate'
+  'softec26-ai-hackathon.pdf': 'SOFTEC ’26 — AI Hackathon Certificate',
+  'alibaba-cloud-ai-hackathon.jpg': 'Alibaba Cloud AI Hackathon Pakistan 2026'
 };
 let certificateTrigger;
 document.querySelectorAll('.certificate-link').forEach(link => {

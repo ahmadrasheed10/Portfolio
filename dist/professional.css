@@ -152,3 +152,8 @@ html,body{overflow-x:clip}
 .hero h1>.hero-name{animation-delay:4.35s}
 
 @media(prefers-reduced-motion:reduce){.page-transition{display:none}.reveal,.reveal.pending{opacity:1;transform:none;clip-path:none;filter:none}.section-heading::after{transform:scaleX(1)}}
+
+/* Three-column credential wall for the expanded certificate collection. */
+@media(min-width:1001px){.certificates-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.certificate-card{padding:22px;gap:15px}.certificate-card h3{font-size:17px}.ai-hackathon-card .credential-icon{background:linear-gradient(135deg,#fff0e7,#e9f1ff);color:#d65b1b;border-color:#efc9af}}
+@media(min-width:701px) and (max-width:1000px){.certificates-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ai-hackathon-card{grid-column:1/-1}}
+[data-theme="dark"] .ai-hackathon-card .credential-icon{background:linear-gradient(135deg,#4c2b25,#243b5d);color:#ffb07e;border-color:#6c4a43}
